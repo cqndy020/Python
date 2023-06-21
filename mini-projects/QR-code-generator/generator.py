@@ -12,7 +12,7 @@ You can generate any vaild URL you want.""")
 
         if confirm.lower() == 'y':
             #put the name you want to save
-            qr_image.save("C:/Users/USER/Desktop/qr.png")
+            qr_image.save("qr.png")
             print("QR code save successfully.")
             break
         elif confirm.lower() == 'n':
