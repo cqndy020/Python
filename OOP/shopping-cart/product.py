@@ -6,3 +6,6 @@ class Product:
 
     def __str__(self):
         return f"{self.name} - ${self.price:.2f} ({self.qty} in stock)"
+    
+    def get_total_price(self):
+        return self.price * self.qty
