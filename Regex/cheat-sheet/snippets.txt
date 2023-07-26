@@ -1,0 +1,5 @@
+Functions:
+match()     -  Find the pattern at the beginning of a string
+search()    -  Return the first match of a pattern in a string
+findall()   -  Return all matches of a pattern in a string
+finditer()  -  Return all matches of a pattern as an iterator
