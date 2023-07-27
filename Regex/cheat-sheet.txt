@@ -3,3 +3,8 @@ match()     -  Find the pattern at the beginning of a string
 search()    -  Return the first match of a pattern in a string
 findall()   -  Return all matches of a pattern in a string
 finditer()  -  Return all matches of a pattern as an iterator
+
+group()     -  Return the matched string
+start()     -  Return the starting position of the match
+end()       -  Return the ending position of the match
+span()      -  Return a tuple(start, end) that specifies the position of the match
