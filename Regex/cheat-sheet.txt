@@ -1,5 +1,6 @@
 Functions:
 match()     -  Find the pattern at the beginning of a string
+fullmatch() -  Return a Match object if the whole string matches a pattern or None otherwise
 search()    -  Return the first match of a pattern in a string
 findall()   -  Return all matches of a pattern in a string
 finditer()  -  Return all matches of a pattern as an iterator
