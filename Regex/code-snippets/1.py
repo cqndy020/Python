@@ -8,5 +8,6 @@ result = p.findall(x)
 
 print(result) #output: ['2', '7']
 
+#\d{2} is the same as \d\d
 p1 = re.search('\d{2}',x)
 print(p1)#output: <re.Match object; span=(15, 17), match='27'>
