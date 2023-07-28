@@ -17,3 +17,11 @@ Character Sets:
 \W     -  Not a word characters
 \s     -  White space (space, newline, tab)
 \S     -  Not white space
+.      -  Match any character but a new line
+
+Anchors:
+^      -  beginning of a string
+$      -  end of a string
+
+\b     -  word boundary
+\B     -  Not a word boundary
