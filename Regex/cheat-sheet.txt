@@ -25,3 +25,11 @@ $      -  end of a string
 
 \b     -  word boundary
 \B     -  Not a word boundary
+
+Quantifier:
+*      -  0 or more
++      -  1 or more
+?      -  0 or 1
+{n}    -  exact number n (Example: \d{4} )
+{n,}   -  at least 
+{n, m} -  Range of numbers (Min, Max)
