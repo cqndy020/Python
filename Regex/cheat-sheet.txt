@@ -33,3 +33,6 @@ Quantifier:
 {n}    -  exact number n (Example: \d{4} )
 {n,}   -  at least 
 {n, m} -  Range of numbers (Min, Max)
+
+Name Capturing Group:
+(?P<name>rule)  (Example: (?P<resource>\w+))
