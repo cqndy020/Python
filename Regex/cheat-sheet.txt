@@ -35,4 +35,7 @@ Quantifier:
 {n, m} -  Range of numbers (Min, Max)
 
 Name Capturing Group:
-(?P<name>rule)  (Example: (?P<resource>\w+))
+(?P<name>rule)
+Example:
+-'(?P<resource>\w+)'
+-'(\w+)\s+'
