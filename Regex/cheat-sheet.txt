@@ -45,3 +45,9 @@ Lookahead:
 
 Negative Lookahead:
 ?!     - Example=> X(?!Y) - search for X but matches only if it is not followed by Y
+
+Lookbehind:
+?<=    - Example=> (?<=Y)X - matches X only if there is Y before it
+
+Negative Lookbehind:
+?<!    - Example=> (?<!Y)X - matches X only if there's no Y before it
