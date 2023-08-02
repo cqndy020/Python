@@ -42,3 +42,6 @@ Example:
 
 Lookahead:
 ?=     - Example=> X(?=Y) - search for X but matches only if it is followed by Y
+
+Negative Lookahead:
+?!     - Example=> X(?!Y) - search for X but matches only if it is not followed by Y
