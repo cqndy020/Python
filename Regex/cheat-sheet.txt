@@ -39,3 +39,6 @@ Name Capturing Group:
 Example:
 -'(?P<resource>\w+)'
 -'(\w+)\s+'
+
+Lookahead:
+?=     - Example=> X(?=Y) - search for X but matches only if it is followed by Y
