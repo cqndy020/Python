@@ -6,11 +6,21 @@ class Account:
 
         self.account_number = account_number
         self.account_holder = account_holder
-        self.balance = balance
+        self.__balance = balance
         self.type = type
 
     def view_balance(self):
-        return f"Your balance: {self.balance}."
+        return f"Your __balance: {self.__balance}."
+    
+    @property
+    def balance(self):
+        return self.__balance
+    
+    @balance.setter
+    def change_balance(self, value):
+        if value < 0:
+            print('The balance should be positive.')
+        self.__balance = value
     
 class Bank:
     def __init__(self, name):
