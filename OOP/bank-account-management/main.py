@@ -1,26 +1,23 @@
-"""Bank Account Management System"""
+"""
+Bank Account Management System
+*Bank*== bank name, creating/closing bank account, deposit/withdrawal
+*account*== account number, account name, account type
+
+Account type: Savings / Checking
+"""
 
 class Account:
-    def __init__(self, account_number: float, account_holder, balance: float, type):
-        assert balance >= 0, "The balance cannot be negative."
-
+    def __init__(self, account_number: float, account_holder, type):
         self.account_number = account_number
         self.account_holder = account_holder
-        self.__balance = balance
+        self.balance = 0
         self.type = type
 
     def view_balance(self):
-        return f"Your __balance: {self.__balance}."
+        return f"Your balance: {self.balance}."
     
-    @property
-    def balance(self):
-        return self.__balance
-    
-    @balance.setter
-    def change_balance(self, value):
-        if value < 0:
-            print('The balance should be positive.')
-        self.__balance = value
+    def display_account_info(self):
+        return f"Account Number: {self.account_number}\nAccount Holder: {self.account_holder}\nBalance: {self.balance}\nAccount Type: {self.type}"
     
 class Bank:
     def __init__(self, name):
@@ -31,15 +28,18 @@ class Bank:
         if Bank:
             print('New transaction occurs.')
 
-    def adding_new_account(self, account):
-        if self.account != self.name:
-            self.accounts.append(account)
-            print(f'Adding {self.account} successfully!')
-        else:
-            print(f'{self.account} is already exist.\nYou can remove or update your account.')
+    def create_account(self, account_number, account_holder, type):
+        account = Account(account_number, account_holder, type)
+        self.accounts.append(account)
+        return account
+    
+    def close_account(self, account):
+        self.accounts.remove(account)
 
-    def closing_account(self, account):
-        pass
+    def display_accounts(self):
+        for account in self.accounts:
+            print(account.display_account_info())
+            print("=" * 20)
 
 class Transaction:
     def __init__(self, transaction_type, amount):
@@ -50,3 +50,10 @@ class Transaction:
 
     def display_transaction(self):
         return f"{self.transaction_type}  ${self.amount}"
+
+bank = Bank('KBZ')
+
+acc1 = bank.create_account('12345', 'Alice', 'Savings')
+acc2 = bank.create_account('56789', 'Bob', 'Checking')
+
+bank.display_accounts()
