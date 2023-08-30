@@ -12,6 +12,7 @@ class Account:
         self.account_holder = account_holder
         self.balance = 0
         self.type = type
+        self.transactions = []
 
     def view_balance(self):
         return f"Your balance: {self.balance}."
@@ -19,6 +20,21 @@ class Account:
     def display_account_info(self):
         return f"Account Number: {self.account_number}\nAccount Holder: {self.account_holder}\nBalance: {self.balance}\nAccount Type: {self.type}"
     
+    def deposit(self, amount:float):
+        assert amount >= 0, 'The amount should be positive'
+
+        self.balance += amount
+        self.transactions.append(Transaction('Deposit', amount))
+    
+    def withdraw(self, amount:float):
+        assert amount >=0, 'The amount should be positive'
+
+        if amount <= self.balance:
+            self.balance -= amount
+            self.transactions.append(Transaction('Withdrawal', amount))
+        else:
+            print(f'You can only withdraw: ${self.balance}')
+
 class Bank:
     def __init__(self, name):
         self.name = name
@@ -41,12 +57,24 @@ class Bank:
             print(account.display_account_info())
             print("=" * 20)
 
+    def perform_transaction(self, account, transaction_type, amount):
+        if transaction_type == 'Deposit':
+            account.deposit(amount)
+            print('Deposit successfully!')
+
+        elif transaction_type == 'Withdrawal':
+            account.withdraw(amount)
+            print('Withdraw successfully!')
+            
+        else:
+            print("Transaction could only deposit and withdraw.\nTo deposit: Type 'Deposit'\nTo Withdraw: Type 'Withdrawal'")
+
 class Transaction:
-    def __init__(self, transaction_type, amount):
+    def __init__(self, transaction_type, amount:float):
         assert amount >= 0, "The amount should be more than or equal to 0."
 
         self.transaction_type = transaction_type
-        self.amount = self.amount
+        self.amount = amount
 
     def display_transaction(self):
         return f"{self.transaction_type}  ${self.amount}"
@@ -56,4 +84,6 @@ bank = Bank('KBZ')
 acc1 = bank.create_account('12345', 'Alice', 'Savings')
 acc2 = bank.create_account('56789', 'Bob', 'Checking')
 
-bank.display_accounts()
+acc1.deposit(100.0)
+
+bank.perform_transaction(acc1, 'withdrawal', 55)
